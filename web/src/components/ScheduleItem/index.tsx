@@ -35,7 +35,16 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({schedule}) => {
                 <span>{schedule.specialty}</span>
             </div>
         </header>
+            <p>
+                Início da consulta: {schedule.hour_begin}
+            </p>
+            <p>
+               Término da consulta: {schedule.hour_end}
+            </p>
         <footer>
+            <p>
+                {schedule.weekDay}
+            </p>
             <a onClick={CreateNewConnection} href={"/"}>
                 Marcar consulta
             </a>

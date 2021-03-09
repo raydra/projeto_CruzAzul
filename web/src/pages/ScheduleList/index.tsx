@@ -11,7 +11,7 @@ import './styles.css';
 
 function ScheduleList() {
 
-    const [doctor, setDoctor] = useState([]);
+    const [doctor_schedule, setDoctorSchedule] = useState([]);
 
     const [specialty, setSpecialty] = useState('');
     const [week_day, setWeekDay] = useState('');
@@ -28,7 +28,7 @@ function ScheduleList() {
             }
         });
 
-        setDoctor(response.data);
+        setDoctorSchedule(response.data);
     };
 
     return (
@@ -77,8 +77,8 @@ function ScheduleList() {
             </PageHeader>
 
             <main>
-                {doctor.map((doctor: Schedule) => {
-                    return <ScheduleItem key={doctor.id} schedule={doctor} />
+                {doctor_schedule.map((doctor_schedule: Schedule) => {
+                    return <ScheduleItem key={doctor_schedule.id} schedule={doctor_schedule} />
                 })}    
             </main>
         </div>
