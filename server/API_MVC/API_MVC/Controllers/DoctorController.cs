@@ -4,15 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace WebAPI2.Controllers
+namespace API_MVC.Controllers
 {
-    public class PatientController : Controller
+    public class DoctorController : Controller
     {
         public ActionResult Index()
         {
             return View();
         }
-
 
         public ActionResult Incluir()
         {
@@ -20,9 +19,9 @@ namespace WebAPI2.Controllers
         }
 
         [HttpPost]
-        public JsonResult Incluir(PatientModel model)
+        public JsonResult Incluir(DoctorModel model)
         {
-            BoPatient bo = new BoPatient();
+            BoDoctor bo = new BoDoctor();
             
             if (!this.ModelState.IsValid)
             {
@@ -36,12 +35,11 @@ namespace WebAPI2.Controllers
             else
             {
                 
-                model.Id = bo.Incluir(new Patient()
+                model.Id = bo.Incluir(new Doctor()
                 {                    
                     Name = model.Name,
-                    CPF = model.CPF,
-                    Email = model.Email,
-                    Whatsapp = model.Whatsapp
+                    CRM = model.CRM,
+                    Specialty = model.Specialty
                 });
 
                 return Json("Cadastro efetuado com sucesso");
@@ -49,11 +47,11 @@ namespace WebAPI2.Controllers
         }
 
         [HttpPut]
-        public JsonResult Alterar(PatientModel model)
+        public JsonResult Alterar(DoctorModel model)
         {
-            BoPatient bo = new BoPatient();
-            Patient patient = bo.Consultar(id);
-            Models.PatientModel model = null;
+            BoDoctor bo = new BoDoctor();
+            Doctor doctor = bo.Consultar(id);
+            Models.DoctorModel model = null;
        
             if (!this.ModelState.IsValid)
             {
@@ -66,12 +64,11 @@ namespace WebAPI2.Controllers
             }
             else
             {
-                bo.Alterar(new Patient()
+                bo.Alterar(new Doctor()
                 {                    
                     Name = model.Name,
-                    CPF = model.CPF,
-                    Email = model.Email,
-                    Whatsapp = model.Whatsapp
+                    CRM = model.CRM,
+                    Specialty = model.Specialty
                 });
                                
                 return Json("Cadastro alterado com sucesso");
@@ -79,9 +76,9 @@ namespace WebAPI2.Controllers
         }
 
        [HttpDelete]
-        public JsonResult Deletar(PatientModel model)
+        public JsonResult Deletar(DoctorModel model)
         {
-            BoPatient bo = new BoPatient();
+            BoDoctor bo = new BoDoctor();
        
             if (!this.ModelState.IsValid)
             {
@@ -94,12 +91,11 @@ namespace WebAPI2.Controllers
             }
             else
             {
-                bo.Deletar(new Patient()
+                bo.Deletar(new Doctor()
                 {                    
                     Name = model.Name,
-                    CPF = model.CPF,
-                    Email = model.Email,
-                    Whatsapp = model.Whatsapp
+                    CRM = model.CRM,
+                    Specialty = model.Specialty
                 });
                                
                 return Json("Cadastro deletado com sucesso");

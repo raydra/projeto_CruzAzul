@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace WebAPI2.Models
+namespace API_MVC.Models
 {
     public class Schedule
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace WebAPI2.Controllers
+namespace API_MVC.Controllers
 {
     public class ScheduleController : Controller
     {
